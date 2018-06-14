@@ -2,7 +2,7 @@
 - name: Install Armor Anywhere
   hosts: all
   vars:
-    license: XXXX-XXXX-XXXX-XXXX
+    license: xxxx-xxxx-xxxx-xxxx-xxxx
   sudo: yes
   tasks:
     - name: download the latest Armor Anywhere agent.

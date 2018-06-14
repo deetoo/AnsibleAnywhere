@@ -1,6 +1,6 @@
 ---
 - name: Install Armor Anywhere
-  hosts: ubuntu-box
+  hosts: all
   vars:
     license: xxxx-xxxx-xxxx-xxxx-xxxx
   sudo: yes
