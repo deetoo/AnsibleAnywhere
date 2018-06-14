@@ -1,0 +1,20 @@
+---
+- name: Install Armor Anywhere
+  hosts: all
+  vars:
+    license: XXXX-XXXX-XXXX-XXXX
+  sudo: yes
+  tasks:
+    - name: download the latest Armor Anywhere agent.
+      get_url:
+        url: https://get.core.armor.com/latest/armor-agent.rpm
+        dest: /tmp/armor-agent.rpm
+
+    - name: install Armor Anywhere
+      yum:
+        name: /tmp/armor-agent.rpm
+        state: present
+
+    - name: registrer Armor Anywhere
+      command: /opt/armor/armor register --license={{ license }}
+

@@ -1,0 +1,19 @@
+---
+- name: Install Armor Anywhere
+  hosts: ubuntu-box
+  vars:
+    license: xxxx-xxxx-xxxx-xxxx-xxxx
+  sudo: yes
+  tasks:
+    - name: download the latest Armor Anywhere agent.
+      get_url:
+        url: https://get.core.armor.com/latest/armor-agent.deb
+        dest: /tmp/armor-agent.deb
+
+    - name: install Armor Anywhere
+      apt: deb="/tmp/armor-agent.deb"
+      sudo: true
+
+    - name: register Armor Anywhere
+      command: /opt/armor/armor register --license={{ license }}
+
